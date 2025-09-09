@@ -22,7 +22,7 @@ The datasets, code and weights will be released, stay tuned!
 
 ## Timeline
 
-- [2025/03/09] Our IRG paper ([Interleaving Reasoning for Better Text-to-Image Generation](https://arxiv.org/abs/2509.06945)) can be accessed in arXiv!
+- [2025/09/08] Our IRG paper ([Interleaving Reasoning for Better Text-to-Image Generation](https://arxiv.org/abs/2509.06945)) can be accessed in arXiv!
 
 ## Overview
 
