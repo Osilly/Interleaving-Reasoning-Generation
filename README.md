@@ -2,7 +2,7 @@
 The official repo for "Interleaving Reasoning for Better Text-to-Image Generation".
 
 <p align="center">
-       🤗 <a href="https://github.com/Osilly/Interleaving-Reasoning-Generation">IRG</a>&nbsp&nbsp | &nbsp&nbsp🤗 <a href="https://huggingface.co/Osilly/IRG-Toy-Dataset">IRG-Toy-Dataset</a>&nbsp&nbsp | &nbsp&nbsp📑 <a href="https://arxiv.org/abs/2509.06945">Paper</a>&nbsp&nbsp
+       🤗 <a href="https://github.com/Osilly/Interleaving-Reasoning-Generation">IRG</a>&nbsp&nbsp | &nbsp&nbsp🤗 <a href="https://huggingface.co/datasets/Osilly/IRG-Toy-Dataset">IRG-Toy-Dataset</a>&nbsp&nbsp | &nbsp&nbsp📑 <a href="https://arxiv.org/abs/2509.06945">Paper</a>&nbsp&nbsp
 </p>
 
 The datasets, code and weights will be released, stay tuned!
@@ -47,6 +47,22 @@ The datasets, code and weights will be released, stay tuned!
 > Overview of our proposed IRG training and inference pipeline. IRG learns the text-based thinking process and the complete high-quality image generation pipeline under six decomposed learning modes. During inference, we introduce a dedicated CFG condition design for IRG’s improved image generation steps. 
 
 ## Quickstart
+
+### Environment
+
+1. Clone this repository and navigate to IRG folder
+
+```
+git clone https://github.com/Osilly/Interleaving-Reasoning-Generation.git
+cd Interleaving-Reasoning-Generation
+```
+
+2. Install Package
+
+```
+pip install -e .
+pip install flash-attn --no-build-isolation
+```
 
 ### Inference
 
