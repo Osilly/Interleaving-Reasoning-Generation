@@ -46,6 +46,18 @@ The datasets, code and weights will be released, stay tuned!
 
 > Overview of our proposed IRG training and inference pipeline. IRG learns the text-based thinking process and the complete high-quality image generation pipeline under six decomposed learning modes. During inference, we introduce a dedicated CFG condition design for IRG’s improved image generation steps. 
 
+## Quickstart
+
+### Inference
+
+### SFT Training
+
+Please refer to [SFT/README.md](https://github.com/Osilly/Interleaving-Reasoning-Generation/blob/main/SFT/README.md).
+
+### Evalution
+
+Please refer to [eval/README.md](https://github.com/Osilly/Interleaving-Reasoning-Generation/blob/main/eval/README.md).
+
 ## Acknowledgements
 
 Thanks for the wonderful works of [BAGEL](https://github.com/bytedance-seed/BAGEL)!
