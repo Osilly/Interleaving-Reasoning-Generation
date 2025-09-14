@@ -18,7 +18,7 @@ The datasets, code and weights will be released, stay tuned!
 | Show-o2           | 0.76     | 0.61     | 62.80/63.87            | 0.75        | 0.308    |
 | BAGEL             | 0.78     | 0.52     | 70.97/71.79            | 0.79        | 0.361    |
 | BAGEL w/ self-CoT | 0.79     | 0.70     | 68.06/68.78            | 0.81        | 0.324    |
-| **IRG**           | **0.85** | **0.77** | **76.00/73.77**        | **0.84**    | 0.415    |
+| **IRG (Ours)**    | **0.85** | **0.77** | **76.00/73.77**        | **0.84**    | 0.415    |
 
 *: Using the rewrited prompts to evaluation.
 

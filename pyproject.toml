@@ -1,0 +1,77 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "IRG"
+version = "0.1.0"
+description = "IRG: SFT + RL unified environment"
+readme = "README.md"
+requires-python = ">=3.8"
+license = "Apache-2.0"
+authors = [
+  {name = "Osilly", email = "osilly0616@gmail.com"}
+]
+
+dependencies = [
+  "torch==2.6.0",
+  "torchvision",
+  "vllm==0.8.2",
+  "decord==0.6.0",
+  "einops==0.8.1",
+  "huggingface_hub>=0.29.1",
+  "matplotlib>=3.7.0",
+  "numpy>=1.24.4",
+  "opencv_python>=4.7.0.72",
+  "pyarrow>=19.0.0",
+  "PyYAML>=6.0.2",
+  "requests>=2.32.3",
+  "safetensors>=0.4.5",
+  "scipy>=1.10.1",
+  "sentencepiece>=0.1.99",
+  "transformers==4.51.3",
+  "accelerate>=0.34.0",
+  "wandb",
+  "gradio",
+  "setuptools",
+  "wheel",
+  "ninja",
+  "bitsandbytes",
+  "xlsxwriter",
+  "triton; sys_platform != 'win32'",
+  "triton-windows; sys_platform == 'win32'",
+  "codetiming",
+  "datasets",
+  "dill",
+  "hydra-core",
+  "liger-kernel",
+  "pandas",
+  "peft",
+  "pybind11",
+  "pylatexenc",
+  "pre-commit",
+  "ray[default]>=2.10,<2.50",
+  "tensordict<=0.6.2",
+  "torchdata",
+  "packaging>=20.0",
+  "uvicorn",
+  "fastapi",
+  "mathruler",
+  "torch-memory-saver",
+  "qwen_vl_utils"
+]
+
+[project.optional-dependencies]
+dev = [
+  "pre-commit",
+  "pytest",
+  "ruff"
+]
+
+# 明确指定包含的包
+[tool.setuptools.packages.find]
+include = ["RL*", "SFT*"]
+
+# 包数据配置
+[tool.setuptools.package-data]
+"*" = ["*.yaml", "*.yml", "*.json", "*.txt", "*.md"] 

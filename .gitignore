@@ -121,7 +121,7 @@ venv.bak/
 *.sublime-workspace
 *.sublime-project
 sftp-config.json
-run.sh
+# run.sh
 
 
 
