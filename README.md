@@ -1,10 +1,8 @@
 # Interleaving Reasoning Generation
 The official repo for "Interleaving Reasoning for Better Text-to-Image Generation".
 
-
-
 <p align="center">
-       &nbsp&nbsp📑 <a href="https://arxiv.org/abs/2509.06945">Paper</a>&nbsp&nbsp
+       🤗 <a href="https://github.com/Osilly/Interleaving-Reasoning-Generation">IRG</a>&nbsp&nbsp | &nbsp&nbsp🤗 <a href="https://huggingface.co/Osilly/IRG-Toy-Dataset">IRG-Toy-Dataset</a>&nbsp&nbsp | &nbsp&nbsp📑 <a href="https://arxiv.org/abs/2509.06945">Paper</a>&nbsp&nbsp
 </p>
 
 The datasets, code and weights will be released, stay tuned!
@@ -23,6 +21,8 @@ The datasets, code and weights will be released, stay tuned!
 *: Using the rewrited prompts to evaluation.
 
 ## Timeline
+
+- [2025/09/15] **We released [SFT training code](https://github.com/Osilly/Interleaving-Reasoning-Generation/tree/main/SFT) and [IRG-Toy-Dataset](https://huggingface.co/Osilly/IRG-Toy-Dataset)**!
 
 - [2025/09/08] Our IRG paper ([Interleaving Reasoning for Better Text-to-Image Generation](https://arxiv.org/abs/2509.06945)) can be accessed in arXiv!
 
@@ -45,3 +45,7 @@ The datasets, code and weights will be released, stay tuned!
 ![](figs/pipeline.png)
 
 > Overview of our proposed IRG training and inference pipeline. IRG learns the text-based thinking process and the complete high-quality image generation pipeline under six decomposed learning modes. During inference, we introduce a dedicated CFG condition design for IRG’s improved image generation steps. 
+
+## Acknowledgements
+
+Thanks for the wonderful works of [BAGEL](https://github.com/bytedance-seed/BAGEL)!
