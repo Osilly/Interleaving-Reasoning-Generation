@@ -22,7 +22,7 @@ The datasets, code and weights will be released, stay tuned!
 
 ## Timeline
 
-- [2025/09/15] **We released [SFT training code](https://github.com/Osilly/Interleaving-Reasoning-Generation/tree/main/SFT) and [IRG-Toy-Dataset](https://huggingface.co/Osilly/IRG-Toy-Dataset)**!
+- [2025/09/15] **We released [SFT training code](https://github.com/Osilly/Interleaving-Reasoning-Generation/tree/main/SFT) and [IRG-Toy-Dataset](https://huggingface.co/datasets/Osilly/IRG-Toy-Dataset)**!
 
 - [2025/09/08] Our IRG paper ([Interleaving Reasoning for Better Text-to-Image Generation](https://arxiv.org/abs/2509.06945)) can be accessed in arXiv!
 
