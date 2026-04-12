@@ -1,20 +1,15 @@
-import os
-import torch
-import time
-from PIL import Image
-from typing import List
-from transformers import AutoModel, AutoTokenizer
-from transformers.utils import is_flash_attn_2_available
-from transformers import Qwen2_5_VLForConditionalGeneration
-from qwen_vl_utils import process_vision_info
-from transformers import AutoProcessor
-import requests
-from io import BytesIO
-import random
-import numpy as np
 import base64
+import random
+from io import BytesIO
+from typing import List
+
 import magic
 import megfile
+import numpy as np
+import torch
+from qwen_vl_utils import process_vision_info
+from transformers import AutoProcessor, Qwen2_5_VLForConditionalGeneration
+from transformers.utils import is_flash_attn_2_available
 
 
 def process_image(image):

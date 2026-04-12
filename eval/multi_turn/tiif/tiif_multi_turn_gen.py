@@ -1,33 +1,33 @@
 # Copyright 2025 Bytedance Ltd. and/or its affiliates.
 # SPDX-License-Identifier: Apache-2.0
 
-import os
-import json
 import argparse
-from pathlib import Path
+import copy
+import json
 import logging
+import os
+import random
+from pathlib import Path
+from queue import Empty
 
+import numpy as np
 import torch
 import torch.multiprocessing as mp
+from PIL import Image
+from tqdm import tqdm
+
 from SFT.data.data_utils import add_special_tokens
+from SFT.modeling.autoencoder import load_ae
 from SFT.modeling.bagel import (
-    BagelConfig,
     Bagel,
+    BagelConfig,
     Qwen2Config,
     Qwen2ForCausalLM,
     SiglipVisionConfig,
     SiglipVisionModel,
 )
-from SFT.modeling.qwen2 import Qwen2Tokenizer
-from SFT.modeling.autoencoder import load_ae
-
-import copy
-from PIL import Image
 from SFT.modeling.bagel.qwen2_navit import NaiveCache
-from tqdm import tqdm
-import random
-import numpy as np
-from queue import Empty
+from SFT.modeling.qwen2 import Qwen2Tokenizer
 
 
 def setup_worker(rank, world_size):
@@ -181,7 +181,7 @@ def writer_fn(queue, output_dir, total_workers, model_name="BAGEL-7B-MoT-MultiTu
 
         except Empty:
             print(
-                f"[Writer] Timed out after 1 hour of inactivity. Assuming workers have died."
+                "[Writer] Timed out after 1 hour of inactivity. Assuming workers have died."
             )
             break  # Exit if queue is empty for a long time
         except Exception as e:

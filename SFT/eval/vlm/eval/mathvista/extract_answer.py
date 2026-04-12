@@ -181,4 +181,4 @@ if __name__ == "__main__":
         if i % args.save_every == 0 or i == test_num - 1:
             print(f"Saving results to {output_file}...")
             save_json(results, output_file)
-            print(f"Results saved.")
+            print("Results saved.")

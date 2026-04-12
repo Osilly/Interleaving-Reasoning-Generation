@@ -148,12 +148,6 @@ def process_single_sample(data):
     }
 
 
-# DATA SAVING
-def save_json(filename, ds):
-    with open(filename, "w") as f:
-        json.dump(ds, f, indent=4)
-
-
 def save_jsonl(filename, data):
     """
     Save a dictionary of data to a JSON Lines file with the filename as key and caption as value.

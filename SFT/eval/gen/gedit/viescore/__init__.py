@@ -2,9 +2,10 @@ import sys
 
 sys.path.insert(0, "viescore")
 
-from utils import mllm_output_to_dict
 import math
+
 import vie_prompts
+from utils import mllm_output_to_dict
 
 
 class VIEScore:

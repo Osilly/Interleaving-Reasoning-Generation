@@ -11,7 +11,6 @@ from transformers.utils import (
     is_vision_available,
 )
 
-
 _import_structure = {
     "configuration_siglip": [
         "SiglipConfig",

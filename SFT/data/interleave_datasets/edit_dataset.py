@@ -3,14 +3,14 @@
 
 import io
 import random
+
 from PIL import Image, ImageFile, PngImagePlugin
 
+from ..data_utils import pil_img2rgb
 from .interleave_t2i_dataset import (
     InterleavedBaseIterableDataset,
     ParquetStandardIterableDataset,
 )
-from ..data_utils import pil_img2rgb
-
 
 Image.MAX_IMAGE_PIXELS = 200000000
 ImageFile.LOAD_TRUNCATED_IMAGES = True

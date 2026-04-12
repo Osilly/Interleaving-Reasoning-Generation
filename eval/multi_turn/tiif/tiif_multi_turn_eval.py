@@ -2,17 +2,17 @@
 # SPDX-License-Identifier: Apache-2.0
 
 import argparse
-import os
-import json
-import glob
-import openai
-import time
-import re
-from tqdm import tqdm
-import math
-import random
 import concurrent.futures
+import glob
+import json
+import os
+import random
+import re
 import threading
+import time
+
+import openai
+from tqdm import tqdm
 
 raw_prompt = """
 You are tasked with conducting a careful examination of the provided image. Based on the content of the image, please answer the following yes or no questions:

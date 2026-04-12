@@ -9,16 +9,16 @@
 #
 # This modified file is released under the same license.
 
-import os
-import json
 import base64
-import time
-import re
+import json
 import logging
-import openai
-from tqdm import tqdm
-from concurrent.futures import ThreadPoolExecutor, as_completed
+import os
+import re
 import threading
+import time
+from concurrent.futures import ThreadPoolExecutor, as_completed
+
+import openai
 
 # import the generic extractor that returns (score, reasoning)
 from metrics_common import extract_score_and_reason
@@ -27,6 +27,7 @@ from prompts import (
     prompt_instruction_temporal,
     prompt_quality,
 )
+from tqdm import tqdm
 
 lock = threading.Lock()  # Thread-safe file writing lock
 openai.api_key = os.getenv("OPENAI_API_KEY")
@@ -169,8 +170,9 @@ openai_client = openai.AzureOpenAI(
 def encode_image_to_base64(image_path):
     """Encode image file to base64 string."""
     try:
-        from PIL import Image
         import io
+
+        from PIL import Image
 
         # Open image and convert to JPEG format in memory
         img = Image.open(image_path)

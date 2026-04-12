@@ -1,26 +1,24 @@
 # Copyright 2025 Bytedance Ltd. and/or its affiliates.
 # SPDX-License-Identifier: Apache-2.0
 
-import copy
-from typing import List, Tuple, Optional
+from typing import List, Optional, Tuple
 
 import torch
 import torch.nn.functional as F
-from torch import nn
-from torch.nn.attention.flex_attention import create_block_mask
-from transformers.configuration_utils import PretrainedConfig
-from transformers.modeling_utils import PreTrainedModel
-
 from data.data_utils import (
     create_sparse_mask,
     get_flattened_position_ids_extrapolate,
     get_flattened_position_ids_interpolate,
     patchify,
 )
-from .qwen2_navit import NaiveCache
-from .modeling_utils import MLPconnector, TimestepEmbedder, PositionEmbedding
-
+from torch import nn
+from torch.nn.attention.flex_attention import create_block_mask
 from tqdm import tqdm
+from transformers.configuration_utils import PretrainedConfig
+from transformers.modeling_utils import PreTrainedModel
+
+from .modeling_utils import MLPconnector, PositionEmbedding, TimestepEmbedder
+from .qwen2_navit import NaiveCache
 
 
 class BagelConfig(PretrainedConfig):

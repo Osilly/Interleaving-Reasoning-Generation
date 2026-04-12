@@ -14,7 +14,6 @@ import torch.utils.checkpoint
 from torch import nn
 from torch.nn import BCEWithLogitsLoss, CrossEntropyLoss, MSELoss
 from torch.nn.init import _calculate_fan_in_and_fan_out
-
 from transformers.activations import ACT2FN
 from transformers.modeling_attn_mask_utils import _prepare_4d_attention_mask
 from transformers.modeling_outputs import (
@@ -33,8 +32,8 @@ from transformers.utils import (
     replace_return_docstrings,
     torch_int,
 )
-from .configuration_siglip import SiglipConfig, SiglipTextConfig, SiglipVisionConfig
 
+from .configuration_siglip import SiglipConfig, SiglipTextConfig, SiglipVisionConfig
 
 if is_flash_attn_2_available():
     from transformers.modeling_flash_attention_utils import _flash_attention_forward

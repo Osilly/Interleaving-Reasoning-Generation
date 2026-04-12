@@ -10,7 +10,6 @@ from transformers.utils import (
     is_torch_available,
 )
 
-
 _import_structure = {
     "configuration_qwen2": ["Qwen2Config"],
     "tokenization_qwen2": ["Qwen2Tokenizer"],

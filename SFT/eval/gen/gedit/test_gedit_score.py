@@ -1,20 +1,17 @@
 # Copyright 2025 Bytedance Ltd. and/or its affiliates.
 # SPDX-License-Identifier: Apache-2.0
 
-from viescore import VIEScore
-import PIL
+import argparse
+import csv
 import os
+import time
+from concurrent.futures import ThreadPoolExecutor, as_completed
+
 import megfile
+from datasets import load_dataset
 from PIL import Image
 from tqdm import tqdm
-import json
-from datasets import load_dataset
-import sys
-import csv
-import threading
-import time
-import argparse
-from concurrent.futures import ThreadPoolExecutor, as_completed
+from viescore import VIEScore
 
 GROUPS = [
     "background_change",

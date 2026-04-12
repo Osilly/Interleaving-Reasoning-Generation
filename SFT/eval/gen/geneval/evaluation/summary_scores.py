@@ -15,7 +15,6 @@ import os
 import numpy as np
 import pandas as pd
 
-
 parser = argparse.ArgumentParser()
 parser.add_argument("filename", type=str)
 args = parser.parse_args()

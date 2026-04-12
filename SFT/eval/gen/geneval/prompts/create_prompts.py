@@ -16,9 +16,9 @@ Generate prompts for evaluation
 import argparse
 import json
 import os
-import yaml
 
 import numpy as np
+import yaml
 
 # Load classnames
 

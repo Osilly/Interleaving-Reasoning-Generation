@@ -10,11 +10,11 @@
 # This modified file is released under the same license.
 
 """Parse and Evalate"""
-import os
 import json
+import os
 from argparse import ArgumentParser
 
-from .data_utils import CAT_SHORT2LONG, DOMAIN_CAT2SUB_CAT, save_json
+from .data_utils import CAT_SHORT2LONG, DOMAIN_CAT2SUB_CAT
 from .eval_utils import calculate_ins_level_acc, evaluate, parse_open_response
 
 if __name__ == "__main__":
