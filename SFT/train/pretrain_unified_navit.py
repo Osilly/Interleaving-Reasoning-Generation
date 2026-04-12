@@ -3,14 +3,27 @@
 
 import functools
 import os
-import wandb
-import yaml
+import shutil
 from copy import deepcopy
 from dataclasses import dataclass, field
 from time import time
 
 import torch
 import torch.distributed as dist
+import wandb
+import yaml
+from data.data_utils import add_special_tokens
+from data.dataset_base import DataConfig, PackedDataset, collate_wrapper
+from modeling.autoencoder import load_ae
+from modeling.bagel import (
+    Bagel,
+    BagelConfig,
+    Qwen2Config,
+    Qwen2ForCausalLM,
+    SiglipVisionConfig,
+    SiglipVisionModel,
+)
+from modeling.qwen2 import Qwen2Tokenizer
 from torch.distributed.algorithms._checkpoint.checkpoint_wrapper import (
     CheckpointImpl,
     apply_activation_checkpointing,
@@ -23,29 +36,15 @@ from transformers.optimization import (
     get_cosine_with_min_lr_schedule_with_warmup,
 )
 
-from data.dataset_base import DataConfig, PackedDataset, collate_wrapper
-from data.data_utils import add_special_tokens
-from modeling.autoencoder import load_ae
-from modeling.bagel import (
-    BagelConfig,
-    Bagel,
-    Qwen2Config,
-    Qwen2ForCausalLM,
-    SiglipVisionConfig,
-    SiglipVisionModel,
-)
-from modeling.qwen2 import Qwen2Tokenizer
-from train.train_utils import create_logger, get_latest_ckpt
 from train.fsdp_utils import (
     FSDPCheckpoint,
     FSDPConfig,
-    grad_checkpoint_check_fn,
-    fsdp_wrapper,
     fsdp_ema_setup,
     fsdp_ema_update,
+    fsdp_wrapper,
+    grad_checkpoint_check_fn,
 )
-
-import shutil
+from train.train_utils import create_logger, get_latest_ckpt
 
 
 @dataclass

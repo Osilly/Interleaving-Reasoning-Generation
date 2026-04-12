@@ -1,11 +1,9 @@
 # Copyright 2025 Bytedance Ltd. and/or its affiliates.
 # SPDX-License-Identifier: Apache-2.0
 
-from .interleave_datasets import UnifiedEditIterableDataset
+from .interleave_datasets import MultiThinkInterleaveT2IDataset, UnifiedEditIterableDataset
 from .t2i_dataset import T2IIterableDataset
 from .vlm_dataset import SftJSONLIterableDataset
-from .interleave_datasets import MultiThinkInterleaveT2IDataset
-
 
 DATASET_REGISTRY = {
     "initial_thinking_understanding_learning": MultiThinkInterleaveT2IDataset,

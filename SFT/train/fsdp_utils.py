@@ -2,28 +2,16 @@
 # SPDX-License-Identifier: Apache-2.0
 
 import functools
+import gc
 import os
 
 import torch
 import torch.distributed as dist
 import torch.distributed.fsdp._traversal_utils as traversal_utils
-from torch.distributed.device_mesh import init_device_mesh
-from torch.distributed.fsdp import (
-    CPUOffload,
-    FullyShardedDataParallel as FSDP,
-    MixedPrecision,
-    BackwardPrefetch,
-    ShardingStrategy,
-    FullStateDictConfig,
-    StateDictType,
-)
-from torch.distributed.fsdp.wrap import transformer_auto_wrap_policy
-from safetensors.torch import load_file, save_file
-
 from modeling.bagel.modeling_utils import (
     MLPconnector,
-    TimestepEmbedder,
     PositionEmbedding,
+    TimestepEmbedder,
 )
 from modeling.bagel.qwen2_navit import (
     Qwen2DecoderLayer,
@@ -31,8 +19,20 @@ from modeling.bagel.qwen2_navit import (
     Qwen2MoTDecoderLayer,
 )
 from modeling.bagel.siglip_navit import SiglipEncoderLayer, SiglipVisionTransformer
-
-import gc
+from safetensors.torch import load_file, save_file
+from torch.distributed.device_mesh import init_device_mesh
+from torch.distributed.fsdp import (
+    BackwardPrefetch,
+    CPUOffload,
+    FullStateDictConfig,
+    MixedPrecision,
+    ShardingStrategy,
+    StateDictType,
+)
+from torch.distributed.fsdp import (
+    FullyShardedDataParallel as FSDP,
+)
+from torch.distributed.fsdp.wrap import transformer_auto_wrap_policy
 
 
 class FSDPConfig:
@@ -180,9 +180,9 @@ class FSDPCheckpoint:
         if resume_from is not None and os.path.exists(resume_from):
             logger.info(f"Loading checkpoint from {resume_from}.")
             if resume_from_ema:
-                model_state_dict_path = os.path.join(resume_from, f"ema.safetensors")
+                model_state_dict_path = os.path.join(resume_from, "ema.safetensors")
             else:
-                model_state_dict_path = os.path.join(resume_from, f"model.safetensors")
+                model_state_dict_path = os.path.join(resume_from, "model.safetensors")
             model_state_dict = load_file(model_state_dict_path, device="cpu")
             # NOTE position embeds are fixed sinusoidal embeddings, so we can just pop it off,
             # which makes it easier to adapt to different resolutions.
@@ -193,7 +193,7 @@ class FSDPCheckpoint:
             del model_state_dict
 
             if ema_model is not None:
-                ema_state_dict_path = os.path.join(resume_from, f"ema.safetensors")
+                ema_state_dict_path = os.path.join(resume_from, "ema.safetensors")
                 if not os.path.exists(ema_state_dict_path):
                     logger.info(f"replicaing ema model from {model_state_dict_path}.")
                     ema_state_dict_path = model_state_dict_path
@@ -206,7 +206,7 @@ class FSDPCheckpoint:
                 logger.info(msg)
                 del ema_state_dict
         else:
-            logger.info(f"Training from scratch.")
+            logger.info("Training from scratch.")
         return model, ema_model
 
     @staticmethod

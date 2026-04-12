@@ -13,11 +13,12 @@
 import argparse
 import os
 import re
-import openai
 from concurrent.futures import ThreadPoolExecutor, as_completed
+
+import openai
+from prompts.ext_ans import demo_prompt
 from tqdm import tqdm
 from utilities import *
-from prompts.ext_ans import demo_prompt
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
 print(openai.api_key)

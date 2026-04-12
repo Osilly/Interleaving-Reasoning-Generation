@@ -1,27 +1,26 @@
 # Copyright 2025 Bytedance Ltd. and/or its affiliates.
 # SPDX-License-Identifier: Apache-2.0
 
-import os
-import json
 import argparse
-from safetensors.torch import load_file
+import json
+import os
 
 import torch
 import torch.distributed as dist
 from data.data_utils import add_special_tokens
+from modeling.autoencoder import load_ae
 from modeling.bagel import (
-    BagelConfig,
     Bagel,
+    BagelConfig,
     Qwen2Config,
     Qwen2ForCausalLM,
     SiglipVisionConfig,
     SiglipVisionModel,
 )
-from modeling.qwen2 import Qwen2Tokenizer
-from modeling.autoencoder import load_ae
-
-from PIL import Image
 from modeling.bagel.qwen2_navit import NaiveCache
+from modeling.qwen2 import Qwen2Tokenizer
+from PIL import Image
+from safetensors.torch import load_file
 
 
 def move_generation_input_to_device(generation_input, device):
@@ -152,6 +151,7 @@ if __name__ == "__main__":
     seed = 42
     if seed is not None:
         import random
+
         import numpy as np
 
         random.seed(seed)

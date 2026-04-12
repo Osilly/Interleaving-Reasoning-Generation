@@ -74,4 +74,17 @@ include = ["RL*", "SFT*"]
 
 # 包数据配置
 [tool.setuptools.package-data]
-"*" = ["*.yaml", "*.yml", "*.json", "*.txt", "*.md"] 
+"*" = ["*.yaml", "*.yml", "*.json", "*.txt", "*.md"]
+
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+ignore = ["E501", "E402", "E722", "E741", "E712", "E721", "E711", "F841", "F403", "F405", "E731"]
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["F401"]
+
+[tool.uv]
+# Install with: uv sync --extra dev

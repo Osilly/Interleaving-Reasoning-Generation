@@ -16,7 +16,6 @@ import torch
 from huggingface_hub import hf_hub_download
 from numpy import load
 from PIL import Image
-
 from transformers import (
     SiglipConfig,
     SiglipImageProcessor,
@@ -25,7 +24,6 @@ from transformers import (
     SiglipTokenizer,
 )
 from transformers.utils import logging
-
 
 logging.set_verbosity_info()
 logger = logging.get_logger(__name__)

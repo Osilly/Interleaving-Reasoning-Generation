@@ -4,10 +4,10 @@
 
 import math
 import random
-from PIL import Image
 
 import torch
-from torch.nn.attention.flex_attention import or_masks, and_masks
+from PIL import Image
+from torch.nn.attention.flex_attention import and_masks, or_masks
 
 
 def create_sparse_mask(document_lens, split_lens, attn_modes, device):

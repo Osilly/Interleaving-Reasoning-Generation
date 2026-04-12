@@ -1,13 +1,13 @@
 # Copyright 2025 Bytedance Ltd. and/or its affiliates.
 # SPDX-License-Identifier: Apache-2.0
 
-import megfile
-import os
-import pandas as pd
-from collections import defaultdict
-import sys
-import numpy as np
 import math
+import os
+from collections import defaultdict
+
+import megfile
+import numpy as np
+import pandas as pd
 
 GROUPS = [
     "background_change",

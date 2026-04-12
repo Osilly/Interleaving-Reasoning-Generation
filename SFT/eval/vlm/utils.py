@@ -10,12 +10,13 @@
 # This modified file is released under the same license.
 
 import os
-import yaml
 
+import yaml
 from data.data_utils import add_special_tokens, pil_img2rgb
+from data.transforms import ImageTransform
 from modeling.bagel import (
-    BagelConfig,
     Bagel,
+    BagelConfig,
     Qwen2Config,
     Qwen2ForCausalLM,
     SiglipVisionConfig,
@@ -23,8 +24,6 @@ from modeling.bagel import (
 )
 from modeling.qwen2 import Qwen2Tokenizer
 from safetensors.torch import load_file
-
-from data.transforms import ImageTransform
 
 
 def load_model_and_tokenizer(args):

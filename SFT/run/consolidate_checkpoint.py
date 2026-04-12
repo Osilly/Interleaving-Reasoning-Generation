@@ -1,11 +1,8 @@
-import os
-import glob
 import argparse
-from tqdm import tqdm
+import glob
+import os
 
-import torch
-from safetensors.torch import load_file, save_file
-
+from data.data_utils import add_special_tokens
 from modeling.bagel import (
     Bagel,
     BagelConfig,
@@ -15,7 +12,8 @@ from modeling.bagel import (
     SiglipVisionModel,
 )
 from modeling.qwen2 import Qwen2Tokenizer
-from data.data_utils import add_special_tokens
+from safetensors.torch import load_file, save_file
+from tqdm import tqdm
 
 
 def consolidate_checkpoint(ckpt_dir, output_file, use_ema=False):

@@ -4,11 +4,11 @@
 import json
 import os
 import traceback
+
 from PIL import Image, ImageFile, PngImagePlugin
 
 from .data_utils import pil_img2rgb
 from .distributed_iterable_dataset import DistributedIterableDataset
-
 
 Image.MAX_IMAGE_PIXELS = 200000000
 ImageFile.LOAD_TRUNCATED_IMAGES = True
@@ -210,7 +210,7 @@ class SftJSONLIterableDataset(DistributedIterableDataset):
 
                 has_loss = [item["loss"] for item in sequence_plan]
                 if sum(has_loss) == 0:
-                    print(f"No loss defined, skipped.")
+                    print("No loss defined, skipped.")
                     continue
 
                 yield dict(

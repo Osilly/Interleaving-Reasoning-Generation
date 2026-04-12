@@ -16,15 +16,16 @@ import os
 import random
 
 import torch
-from .data_utils import CAT_SHORT2LONG, process_single_sample
 from datasets import concatenate_datasets, load_dataset
 from eval.vlm.utils import (
-    load_model_and_tokenizer,
     build_transform,
+    load_model_and_tokenizer,
     process_conversation,
 )
 from PIL import Image
 from tqdm import tqdm
+
+from .data_utils import CAT_SHORT2LONG, process_single_sample
 
 ds_collections = {
     "MMMU_validation": {

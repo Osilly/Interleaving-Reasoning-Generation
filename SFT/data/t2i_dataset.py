@@ -3,8 +3,9 @@
 
 import io
 import json
-import pyarrow.parquet as pq
 import random
+
+import pyarrow.parquet as pq
 from PIL import Image
 
 from .data_utils import pil_img2rgb

@@ -10,14 +10,14 @@
 # This modified file is released under the same license.
 
 import torch
+from flash_attn import flash_attn_varlen_func
 from torch import nn
-
 from transformers.activations import ACT2FN
+
 from modeling.siglip.configuration_siglip import (
     SiglipVisionConfig as _SiglipVisionConfig,
 )
 from modeling.siglip.modeling_siglip import SiglipAttention, SiglipPreTrainedModel
-from flash_attn import flash_attn_varlen_func
 
 
 class SiglipVisionConfig(_SiglipVisionConfig):

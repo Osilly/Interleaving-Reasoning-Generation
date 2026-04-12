@@ -1,9 +1,10 @@
-import os
-from typing import Union, List, Optional
-import json
-import regex as re
 import ast
+import json
+import os
 import random
+from typing import Union
+
+import regex as re
 
 
 def fix_json(input_str):

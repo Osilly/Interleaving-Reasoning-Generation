@@ -9,23 +9,22 @@
 #
 # This modified file is released under the same license.
 
-import os
-import json
 import base64
-import time
-import re
+import json
 import logging
-import openai
-from tqdm import tqdm
-from concurrent.futures import ThreadPoolExecutor, as_completed
+import os
 import threading
+import time
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
+import openai
 from metrics_common import extract_score_and_reason
 from prompts import (
     prompt_consist_multi,
     prompt_instruction_multi,
     prompt_quality,
 )
+from tqdm import tqdm
 
 lock = threading.Lock()  # Thread-safe file writing lock
 openai.api_key = os.getenv("OPENAI_API_KEY")

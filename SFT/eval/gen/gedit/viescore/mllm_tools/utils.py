@@ -1,8 +1,9 @@
-from typing import List
 import base64
 from io import BytesIO
-from PIL import Image
+from typing import List
+
 import requests
+from PIL import Image
 
 
 def pil_image_to_base64(pil_image, format="PNG"):
@@ -21,7 +22,6 @@ def load_image(image_file):
         response = requests.get(image_file)
         image = Image.open(BytesIO(response.content)).convert("RGB")
     else:
-        import os
 
         image = Image.open(image_file).convert("RGB")
     return image

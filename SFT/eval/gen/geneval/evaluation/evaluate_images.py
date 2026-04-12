@@ -19,21 +19,20 @@ import os
 import re
 import sys
 import time
-from tqdm import tqdm
-
 import warnings
+
+from tqdm import tqdm
 
 warnings.filterwarnings("ignore")
 
-import numpy as np
-import pandas as pd
-from PIL import Image, ImageOps
-import torch
 import mmdet
-from mmdet.apis import inference_detector, init_detector
-
+import numpy as np
 import open_clip
+import pandas as pd
+import torch
 from clip_benchmark.metrics import zeroshot_classification as zsc
+from mmdet.apis import inference_detector, init_detector
+from PIL import Image, ImageOps
 
 zsc.tqdm = lambda it, *args, **kwargs: it
 
@@ -158,7 +157,7 @@ def color_classification(image, bboxes, classname):
             [
                 f"a photo of a {{c}} {classname}",
                 f"a photo of a {{c}}-colored {classname}",
-                f"a photo of a {{c}} object",
+                "a photo of a {c} object",
             ],
             DEVICE,
         )

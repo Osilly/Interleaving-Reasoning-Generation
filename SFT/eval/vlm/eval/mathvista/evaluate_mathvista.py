@@ -18,8 +18,8 @@ import random
 import torch
 from datasets import load_dataset
 from eval.vlm.utils import (
-    load_model_and_tokenizer,
     build_transform,
+    load_model_and_tokenizer,
     process_conversation,
 )
 from tqdm import tqdm

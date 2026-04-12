@@ -1,13 +1,14 @@
 # Copyright 2025 Bytedance Ltd. and/or its affiliates.
 # SPDX-License-Identifier: Apache-2.0
 
-import json
 import argparse
+import json
 import os
 import os.path as osp
-from typing import Callable, Iterable
-import time
 import re
+import time
+from typing import Callable, Iterable
+
 import openai
 import pandas as pd
 from utils import *
@@ -84,6 +85,7 @@ def track_progress_rich(
 ) -> list:
 
     from concurrent.futures import ThreadPoolExecutor
+
     from tqdm import tqdm
 
     if save is not None:

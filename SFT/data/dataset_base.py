@@ -2,15 +2,15 @@
 # SPDX-License-Identifier: Apache-2.0
 
 
-import random
 import json
+import random
 
 import numpy as np
 import torch
 
 from .data_utils import (
-    get_flattened_position_ids_interpolate,
     get_flattened_position_ids_extrapolate,
+    get_flattened_position_ids_interpolate,
     len2weight,
     patchify,
     prepare_attention_mask_per_sample,

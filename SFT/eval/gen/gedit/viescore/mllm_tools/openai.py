@@ -1,11 +1,12 @@
 import base64
-import requests
-from io import BytesIO, StringIO
-from typing import Union, Optional, Tuple, List
-from PIL import Image, ImageOps
-import os
-import openai
 import json
+import os
+from io import BytesIO
+from typing import List, Optional, Tuple, Union
+
+import openai
+import requests
+from PIL import Image, ImageOps
 
 
 def get_api_key(file_path):

@@ -1,14 +1,15 @@
 # Copyright 2025 Bytedance Ltd. and/or its affiliates.
 # SPDX-License-Identifier: Apache-2.0
 
-import base64
-import os
-import json
 import argparse
+import base64
+import json
+import os
+import threading
+from concurrent.futures import ThreadPoolExecutor, as_completed
+
 import openai
 from tqdm import tqdm
-from concurrent.futures import ThreadPoolExecutor, as_completed
-import threading
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
 

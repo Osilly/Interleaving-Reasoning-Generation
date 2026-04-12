@@ -1,34 +1,30 @@
-import gradio as gr
-import numpy as np
+import argparse
 import os
-import torch
 import random
 
+import gradio as gr
+import numpy as np
+import torch
 from accelerate import (
     infer_auto_device_map,
-    load_checkpoint_and_dispatch,
     init_empty_weights,
+    load_checkpoint_and_dispatch,
 )
-from PIL import Image
-
+from accelerate.utils import BnbQuantizationConfig, load_and_quantize_model
 from data.data_utils import add_special_tokens, pil_img2rgb
 from data.transforms import ImageTransform
 from inferencer import InterleaveInferencer
 from modeling.autoencoder import load_ae
-from modeling.bagel.qwen2_navit import NaiveCache
 from modeling.bagel import (
-    BagelConfig,
     Bagel,
+    BagelConfig,
     Qwen2Config,
     Qwen2ForCausalLM,
     SiglipVisionConfig,
     SiglipVisionModel,
 )
 from modeling.qwen2 import Qwen2Tokenizer
-
-import argparse
-from accelerate.utils import BnbQuantizationConfig, load_and_quantize_model
-
+from PIL import Image
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--server_name", type=str, default="127.0.0.1")

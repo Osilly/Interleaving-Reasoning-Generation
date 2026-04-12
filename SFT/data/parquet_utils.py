@@ -2,9 +2,9 @@
 # SPDX-License-Identifier: Apache-2.0
 
 
+import logging
 import os
 import subprocess
-import logging
 
 import pyarrow.fs as pf
 import torch.distributed as dist

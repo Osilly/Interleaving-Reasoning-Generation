@@ -15,8 +15,8 @@ import os
 import random
 import re
 
-import numpy as np
 import decord
+import numpy as np
 from PIL import Image
 
 

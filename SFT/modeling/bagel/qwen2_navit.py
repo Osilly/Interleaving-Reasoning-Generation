@@ -15,13 +15,14 @@ from functools import partial
 from typing import List, Optional, Tuple
 
 import torch
+from flash_attn import flash_attn_varlen_func
 from torch import nn
 from torch.nn.attention import SDPBackend, sdpa_kernel
 from torch.nn.attention.flex_attention import flex_attention
 from torch.nn.functional import scaled_dot_product_attention
 from transformers.utils import ModelOutput
 
-from flash_attn import flash_attn_varlen_func
+from modeling.qwen2.configuration_qwen2 import Qwen2Config as _Qwen2Config
 from modeling.qwen2.modeling_qwen2 import (
     Qwen2Attention,
     Qwen2MLP,
@@ -30,9 +31,6 @@ from modeling.qwen2.modeling_qwen2 import (
     Qwen2RotaryEmbedding,
     apply_rotary_pos_emb,
 )
-
-from modeling.qwen2.configuration_qwen2 import Qwen2Config as _Qwen2Config
-
 
 torch._dynamo.config.cache_size_limit = 512
 torch._dynamo.config.accumulated_cache_size_limit = 4096

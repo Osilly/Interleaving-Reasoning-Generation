@@ -1,9 +1,9 @@
 # Copyright 2025 Bytedance Ltd. and/or its affiliates.
 # SPDX-License-Identifier: Apache-2.0
 
-import os
-import json
 import argparse
+import json
+import os
 from collections import defaultdict
 
 # Benchmark type and metric definitions

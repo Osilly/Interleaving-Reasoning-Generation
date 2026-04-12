@@ -1,15 +1,16 @@
 # Copyright 2025 Bytedance Ltd. and/or its affiliates.
 # SPDX-License-Identifier: Apache-2.0
 
+import argparse
+import base64
+import concurrent.futures
 import json
 import os
-import base64
 import re
-import argparse
-import openai
 from pathlib import Path
-from typing import Dict, Any
-import concurrent.futures
+from typing import Any, Dict
+
+import openai
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
 print(openai.api_key)

@@ -20,8 +20,8 @@ from io import BytesIO
 import pandas as pd
 import torch
 from eval.vlm.utils import (
-    load_model_and_tokenizer,
     build_transform,
+    load_model_and_tokenizer,
     process_conversation,
 )
 from PIL import Image

@@ -1,34 +1,31 @@
 # Copyright 2025 Bytedance Ltd. and/or its affiliates.
 # SPDX-License-Identifier: Apache-2.0
 
-import os
-import json
 import argparse
 import copy
-import torch
-import pandas as pd
-from PIL import Image
+import os
+
 import numpy as np
-from tqdm import tqdm
-from io import BytesIO
-from safetensors.torch import load_file
-from pathlib import Path
-from datasets import load_dataset
+import torch
 
 # Import model components
 from data.data_utils import add_special_tokens
+from data.transforms import ImageTransform
+from datasets import load_dataset
+from modeling.autoencoder import load_ae
 from modeling.bagel import (
-    BagelConfig,
     Bagel,
+    BagelConfig,
     Qwen2Config,
     Qwen2ForCausalLM,
     SiglipVisionConfig,
     SiglipVisionModel,
 )
-from modeling.qwen2 import Qwen2Tokenizer
-from data.transforms import ImageTransform
 from modeling.bagel.qwen2_navit import NaiveCache
-from modeling.autoencoder import load_ae
+from modeling.qwen2 import Qwen2Tokenizer
+from PIL import Image
+from safetensors.torch import load_file
+from tqdm import tqdm
 
 
 def move_generation_input_to_device(generation_input, device):
@@ -99,7 +96,7 @@ def setup_models(model_path, device=0):
     tokenizer, new_token_ids, _ = add_special_tokens(tokenizer)
 
     ema_state_dict_path = os.path.join(
-        model_path, f"ema.safetensors"
+        model_path, "ema.safetensors"
     )  # may beed to change
     ema_state_dict = load_file(ema_state_dict_path, device="cpu")
     msg = model.load_state_dict(ema_state_dict, strict=False)

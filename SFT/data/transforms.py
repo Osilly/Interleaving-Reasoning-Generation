@@ -2,14 +2,14 @@
 # SPDX-License-Identifier: Apache-2.0
 
 import random
-from PIL import Image
 
 import cv2
 import numpy as np
 import torch
+from PIL import Image
 from torchvision import transforms
-from torchvision.transforms import functional as F
 from torchvision.transforms import InterpolationMode
+from torchvision.transforms import functional as F
 
 
 class MaxLongEdgeMinShortEdgeResize(torch.nn.Module):
